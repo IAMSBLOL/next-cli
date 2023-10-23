@@ -10,4 +10,4 @@ const HomePage1 = () => (
   </div>
 );
 
-export default HomePage;
+export default HomePage21;
