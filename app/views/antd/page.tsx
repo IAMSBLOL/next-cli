@@ -3,11 +3,11 @@
 import React from 'react';
 import { Button } from 'antd';
 
-const HomePage1 = () => (
+const HomePage = () => (
   <div className="App">
     <Button
       type="primary">Button</Button>
   </div>
 );
 
-export default HomePage21;
+export default HomePage;
