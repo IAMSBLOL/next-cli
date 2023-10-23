@@ -9,6 +9,26 @@
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.vue": [
+      "eslint --fix",
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{htm,html,css,sss,less,scss,sass}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "@mdx-js/loader": "^2.3.0",
@@ -46,6 +66,8 @@
     "eslint-config-standard-react": "^13.0.0",
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
     "next-compose-plugins": "^2.2.1",
     "postcss": "^8",
     "tailwindcss": "^3",
