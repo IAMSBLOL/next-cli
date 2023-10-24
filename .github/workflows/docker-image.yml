@@ -14,5 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install and Build
+      run: |                               # 步骤运行的命令
+        yarn install
+        yarn build
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file ./docker/Dockerfile --tag /$NAMESPACE/$IMAGES:$(date +%s)
