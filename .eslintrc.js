@@ -3,7 +3,7 @@ module.exports = {
     'standard',
     'standard-react',
     'plugin:@typescript-eslint/recommended',
-    'next/core-web-vitals'
+    'next/core-web-vitals',
   ],
   rules: {
     'multiline-ternary': 'off',
