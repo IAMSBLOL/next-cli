@@ -9,6 +9,8 @@ import packageJson from '../package.json' assert {type:'json'}
 //
 const _tag = uuidv4()
 
+// 这个是推送到docker hub，想改的话自己配置一下命名空间和仓库
+
 // const _describetion = args['--d'] || args.d || 'test'
 
 if (/[\u4e00-\u9fa5]/.test(_tag)) {
