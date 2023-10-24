@@ -25,4 +25,4 @@ jobs:
     # Push the Docker image to TKE Registry
     - name: Publish
       run: |
-        docker push ${TKE_IMAGE_URL}:$(date +%s)
+        docker push ${{ env.TKE_IMAGE_URL }}:$(date +%s)
