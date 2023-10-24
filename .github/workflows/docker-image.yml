@@ -19,4 +19,4 @@ jobs:
         yarn install
         yarn build
     - name: Build the Docker image
-      run: docker build . --file ./docker/Dockerfile --tag /${{ env.NAMESPACE }}/${{ env.IMAGES }}:$(date +%s)
+      run: docker build . --file ./docker/Dockerfile --tag /${{ vars.NAMESPACE }}/${{ vars.IMAGES }}:$(date +%s)
