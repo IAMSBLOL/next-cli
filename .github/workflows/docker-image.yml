@@ -14,9 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install and Build
-      run: |                               # 步骤运行的命令
-        yarn install
-        yarn build
     - name: Build the Docker image
       run: docker build . --file ./docker/Dockerfile --tag ${{ vars.TENGXUNYUN }}/${{ vars.NAMESPACE }}/${{ vars.IMAGES }}:$(date +%s)
+    - name: Push docker image
+      run: |
+        docker login ${{ vars.TENGXUNYUN }} --username=${{ secrets.USERNAME }}
+        echo ${{ secrets.TENGXUNYUN }}
+        docker push ${{ vars.TENGXUNYUN }}/${{ vars.NAMESPACE }}/${{ vars.IMAGES }}:$(date +%s)
