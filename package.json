@@ -9,27 +9,7 @@
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.vue": [
-      "eslint --fix",
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{htm,html,css,sss,less,scss,sass}": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
+  },  
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "@mdx-js/loader": "^2.3.0",
