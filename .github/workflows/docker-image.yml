@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  IMAGE_URL: ${{ vars.TENGXUNYUN }}/${{ vars.NAMESPACE }}/${{ vars.IMAGES }}
+
 jobs:
 
   build:
@@ -15,9 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./docker/Dockerfile --tag ${{ vars.TENGXUNYUN }}/${{ vars.NAMESPACE }}/${{ vars.IMAGES }}:$(date +%s)
+      run: docker build . --file ./docker/Dockerfile --tag ${TKE_IMAGE_URL}:$(date +%s)
     - name: Push docker image
       run: |
-        docker login ${{ vars.TENGXUNYUN }} --username=${{ secrets.USERNAME }}
-        echo ${{ secrets.TENGXUNYUN }}
-        docker push ${{ vars.TENGXUNYUN }}/${{ vars.NAMESPACE }}/${{ vars.IMAGES }}:$(date +%s)
+        docker login -u ${{ secrets.USERNAME }} -p '${{ secrets.TENGXUNYUN }}' ${TKE_IMAGE_URL}
+    # Push the Docker image to TKE Registry
+    - name: Publish
+      run: |
+        docker push ${TKE_IMAGE_URL}:$(date +%s)
