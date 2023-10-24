@@ -24,7 +24,8 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'build',
+  // distDir: 'build',
+  output: 'standalone',
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx', 'md'],
   // experimental: {
   //   mdxRs: true,
