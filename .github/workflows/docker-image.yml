@@ -18,10 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./docker/Dockerfile --tag ${TKE_IMAGE_URL}:$(date +%s)
+      run: docker build . --file ./docker/Dockerfile --tag ${{ env.TKE_IMAGE_URL }}:$(date +%s)
     - name: Push docker image
       run: |
-        docker login -u ${{ secrets.USERNAME }} -p '${{ secrets.TENGXUNYUN }}' ${TKE_IMAGE_URL}
+        docker login -u ${{ secrets.USERNAME }} -p '${{ secrets.TENGXUNYUN }}' ${{ env.TKE_IMAGE_URL }}
     # Push the Docker image to TKE Registry
     - name: Publish
       run: |
